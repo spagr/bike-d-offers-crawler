@@ -15,6 +15,8 @@ use Minwork\Helper\Arr;
 abstract class AbstractDataMapper
 {
 	/**
+	 * *.
+	 *
 	 * @var array
 	 */
 	protected $map = [
@@ -26,6 +28,8 @@ abstract class AbstractDataMapper
 	];
 
 	/**
+	 * *.
+	 *
 	 * @var array
 	 */
 	private $data = [];

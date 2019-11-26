@@ -21,11 +21,15 @@ abstract class AbstractApiDataProvider
 	protected const METHOD = 'POST';
 
 	/**
+	 * *.
+	 *
 	 * @var HttpClientInterface
 	 */
 	private $httpClient;
 
 	/**
+	 * *.
+	 *
 	 * @var ResponseInterface|null
 	 */
 	private $lastResponse = null;
