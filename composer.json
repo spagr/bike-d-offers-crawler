@@ -85,7 +85,7 @@
             "@auto-scripts"
         ],
 	  	"app:tests": "php bin/phpunit",
-	  	"app:phpstan": "phpstan analyse src -c phpstan.neon --level max",
+	  	"app:phpstan": "phpstan analyse src tests -c phpstan.neon --level max",
 		"app:ecs": "ecs check src tests",
 		"app:ecsfix": "ecs check src tests --fix",
 		"app:all": [

@@ -11,12 +11,12 @@ class DummyTest extends TestCase
 	/**
 	 * @dataProvider additionProvider
 	 */
-	public function testAdd($a, $b, $expected): void
+	public function testAdd(int $a, int $b, int $expected): void
 	{
 		$this->assertSame($expected, $a + $b);
 	}
 
-	public function additionProvider()
+	public function additionProvider(): array 
 	{
 		return [
 			[0, 0, 0],
