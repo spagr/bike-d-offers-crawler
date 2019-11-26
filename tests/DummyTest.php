@@ -16,7 +16,7 @@ class DummyTest extends TestCase
 		$this->assertSame($expected, $a + $b);
 	}
 
-	public function additionProvider(): array 
+	public function additionProvider(): array
 	{
 		return [
 			[0, 0, 0],

@@ -89,9 +89,9 @@
 		"app:ecs": "ecs check src tests",
 		"app:ecsfix": "ecs check src tests --fix",
 		"app:all": [
-		  "@app:tests",
 		  "@app:phpstan",
-		  "@app:ecs"
+		  "@app:ecs",
+		  "@app:tests"
 		]
     },
     "conflict": {
