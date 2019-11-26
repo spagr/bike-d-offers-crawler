@@ -15,6 +15,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Brand
 {
 	/**
+	 * @var int|null
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	private $popularity;
+
+	/**
 	 * @var int
 	 * @ORM\Id()
 	 * @ORM\GeneratedValue()
@@ -27,6 +33,12 @@ class Brand
 	 * @ORM\Column(type="string", length=255)
 	 */
 	private $name;
+
+	/**
+	 * @var string|null
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	private $metadataText;
 
 	/**
 	 * @var Collection|BikeModel[]
@@ -195,6 +207,30 @@ class Brand
 				$offerPicture->setBrand(null);
 			}
 		}
+
+		return $this;
+	}
+
+	public function getPopularity(): ?int
+	{
+		return $this->popularity;
+	}
+
+	public function setPopularity(?int $popularity): self
+	{
+		$this->popularity = $popularity;
+
+		return $this;
+	}
+
+	public function getMetadataText(): ?string
+	{
+		return $this->metadataText;
+	}
+
+	public function setMetadataText(?string $metadataText): self
+	{
+		$this->metadataText = $metadataText;
 
 		return $this;
 	}
