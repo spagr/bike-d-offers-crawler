@@ -44,6 +44,7 @@ jobs:
           vendor/bin/ecs check src tests
       - name: Run PHPStan
         run: |
+          composer require phpunit
           vendor/bin/phpstan analyse src tests -c phpstan.neon --level max
       - name: Run Tests
         run: |
