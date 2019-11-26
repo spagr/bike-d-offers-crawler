@@ -45,7 +45,8 @@ jobs:
       - name: Run PHPStan
         run: |
           composer require phpunit
-          vendor/bin/phpstan analyse src tests -c phpstan.neon --level max
+#          vendor/bin/phpstan analyse src tests -c phpstan.neon --level max
+          vendor/bin/phpstan analyse src -c phpstan.neon --level max
       - name: Run Tests
         run: |
           composer require phpunit
