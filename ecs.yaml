@@ -1,0 +1,31 @@
+parameters:
+  cache_directory: var/cache/ecs
+  indentation: "tab" # spaces
+
+  exclude_files:
+    - 'src/Kernel.php'
+
+  skip:
+    PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+    Symplify\CodingStandard\Sniffs\Debug\CommentedOutCodeSniff: ~
+    Symplify\CodingStandard\Sniffs\Debug\DebugFunctionCallSniff:
+      - 'src/Controller/TestController.php'
+    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
+      - 'src/Crawler/AbstractGraphDataProvider.php'
+    Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer: ~
+        
+imports:
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/common.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/php70.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/php71.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr2.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr12.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/symfony.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/symfony-risky.yaml' }
+  - { resource: 'vendor/symplify/easy-coding-standard/config/set/symplify.yaml' }
+  
+services:
+  PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+    syntax: short
+  PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: ~

@@ -1,0 +1,21 @@
+includes:
+	- vendor/phpstan/phpstan-strict-rules/rules.neon
+	- vendor/phpstan/phpstan-symfony/extension.neon
+	- vendor/phpstan/phpstan-doctrine/extension.neon
+	- vendor/phpstan/phpstan-doctrine/rules.neon
+#	- vendor/phpstan/phpstan-mockery/extension.neon
+#	- vendor/phpstan/phpstan-phpunit/extension.neon
+#	- vendor/phpstan/phpstan-phpunit/rules.neon
+
+parameters:
+	symfony:
+		container_xml_path: '%rootDir%/../../../var/cache/dev/srcApp_KernelDevDebugContainer.xml'
+#	excludes_analyse:
+#		- ../../../tests/temp
+#		- ../../../temp
+	ignoreErrors:
+#		- '/Method Dibi\\Fluent\:\:from\(\) invoked with 1 parameter, at least 2 required./'
+#		- '/Call to an undefined method Dibi\\Fluent\:\:union\(\)./'
+#		- '/Access to an undefined property Dibi\\Row\:\:\$[a-zA-Z_]+\./'
+#		- '/Cannot access property \$[a-zA-Z_]+ on array\|Dibi\\Row\./'
+#		- '/Method App\\ElasticModule\\Entities\\AbstractFactory\:\:getFromDb\(\) should return Dibi\\Row\|null but returns array\|Dibi\\Row\|null\./'
