@@ -24,13 +24,13 @@ class Seller
 
 	/**
 	 * @var int
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="integer", nullable=true)
 	 */
-	private $sourceId;
+	private $sourceUserId;
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $sourceUsername;
 
@@ -87,14 +87,14 @@ class Seller
 		return $this;
 	}
 
-	public function getSourceId(): ?int
+	public function getSourceUserId(): ?int
 	{
-		return $this->sourceId;
+		return $this->sourceUserId;
 	}
 
-	public function setSourceId(int $sourceId): self
+	public function setSourceUserId(int $sourceUserId): self
 	{
-		$this->sourceId = $sourceId;
+		$this->sourceUserId = $sourceUserId;
 
 		return $this;
 	}

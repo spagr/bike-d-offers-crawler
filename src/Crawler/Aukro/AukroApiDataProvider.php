@@ -23,7 +23,7 @@ class AukroApiDataProvider extends AbstractApiDataProvider
 		];
 	}
 
-	public function getQuery(int $page = 0, int $size = 180, string $sort = 'startingTime:DESC'): array
+	public function getQuery(int $page = 0, int $size = 60, string $sort = 'startingTime:DESC'): array
 	{
 		return [
 			'page' => $page,

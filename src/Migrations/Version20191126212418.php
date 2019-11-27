@@ -12,14 +12,14 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20191126212418 extends AbstractMigration
 {
-    public function getDescription() : string
-    {
-        return '';
-    }
+	public function getDescription(): string
+	{
+		return '';
+	}
 
-    public function up(Schema $schema) : void
-    {
-        // this up() migration is auto-generated, please modify it to your needs
+	public function up(Schema $schema): void
+	{
+		// this up() migration is auto-generated, please modify it to your needs
 		$this->addSql(<<<SQL
 -- Adminer 4.6.2 MySQL dump
 
@@ -181,11 +181,10 @@ INSERT INTO `brand` (`id`, `popularity`, `name`, `metadata_text`, `created_at`, 
 -- 2019-11-26 21:25:51
 SQL
 		);
-    }
+	}
 
-    public function down(Schema $schema) : void
-    {
-        // this down() migration is auto-generated, please modify it to your needs
-
-    }
+	public function down(Schema $schema): void
+	{
+		// this down() migration is auto-generated, please modify it to your needs
+	}
 }

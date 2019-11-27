@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Crawler\Aukro\AukroApiDataProvider;
+use App\Crawler\Aukro\AukroCrawler;
+use App\Crawler\Aukro\AukroOfferDataMapper;
 use App\Entity\Brand;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,14 +23,53 @@ class TestController extends AbstractController
 	/**
 	 * @Route("/")
 	 */
-	public function index(Request $request, AukroApiDataProvider $aukroApiDataProvider): Response
-	{
+	public function index(
+		Request $request,
+		AukroApiDataProvider $aukroApiDataProvider,
+		AukroOfferDataMapper $aukroOfferDataMapper
+	): Response {
 		$result = $aukroApiDataProvider->apiRequest(
 			$aukroApiDataProvider->getQuery(),
 			$aukroApiDataProvider->getPayload()
 		);
 
-		dump($result);
+		dump($result['content'][0]);
+
+		$aukroOfferDataMapper->setData($result['content'][0]);
+
+		dump($aukroOfferDataMapper);
+
+		return $this->render('test/index.html.twig', [
+			//            'articles' => $this->advisoryRepository->findAll(),
+		]);
+	}
+
+	/**
+	 * @Route("/date")
+	 */
+	public function date(Request $request, AukroApiDataProvider $aukroApiDataProvider): Response
+	{
+		dump(
+			DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s.uT', '2019-11-26T11:17:03.409Z')
+		);
+
+		return $this->render('test/index.html.twig', [
+			//            'articles' => $this->advisoryRepository->findAll(),
+		]);
+	}
+
+	/**
+	 * @Route("/crawler")
+	 */
+	public function crawler(Request $request, AukroCrawler $aukroCrawler): Response
+	{
+		$aukroCrawler->prepare();
+
+		foreach ($aukroCrawler->getElement() as $data) {
+			dump($data);
+
+			break;
+		}
 
 		return $this->render('test/index.html.twig', [
 			//            'articles' => $this->advisoryRepository->findAll(),

@@ -15,12 +15,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Offer
 {
 	/**
-	 * @var int
-	 * @ORM\Id()
-	 * @ORM\GeneratedValue()
-	 * @ORM\Column(type="integer")
+	 * @var string|null
+	 * @ORM\Column(type="string", length=1000)
 	 */
-	private $id;
+	private $url;
+
+	/**
+	 * @var int|null
+	 * @ORM\Column(type="bigint", nullable=true)
+	 */
+	private $sourceItemId;
 
 	/**
 	 * @var string
@@ -29,16 +33,28 @@ class Offer
 	private $country;
 
 	/**
-	 * @var float|null
-	 * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
-	 */
-	private $priceCZK;
-
-	/**
 	 * @var string|null
 	 * @ORM\Column(type="string", length=3, nullable=true)
 	 */
 	private $currency;
+
+	/**
+	 * @var string
+	 * @ORM\Column(type="string", length=1000)
+	 */
+	private $title;
+
+	/**
+	 * @var string|null
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	private $description;
+
+	/**
+	 * @var float|null
+	 * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+	 */
+	private $priceCZK;
 
 	/**
 	 * @var float|null
@@ -48,27 +64,22 @@ class Offer
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $location;
-
 	/**
-	 * @var string|null
-	 * @ORM\Column(type="text", nullable=true)
+	 * @var int
+	 * @ORM\Id()
+	 * @ORM\GeneratedValue()
+	 * @ORM\Column(type="integer")
 	 */
-	private $description;
+	private $id;
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $color;
-
-	/**
-	 * @var string
-	 * @ORM\Column(type="string", length=1000)
-	 */
-	private $title;
 
 	/**
 	 * @var Collection|OfferPicture[]
@@ -337,6 +348,30 @@ class Offer
 				$offerPicture->setOffer(null);
 			}
 		}
+
+		return $this;
+	}
+
+	public function getUrl(): ?string
+	{
+		return $this->url;
+	}
+
+	public function setUrl(string $url): self
+	{
+		$this->url = $url;
+
+		return $this;
+	}
+
+	public function getSourceItemId(): ?int
+	{
+		return $this->sourceItemId;
+	}
+
+	public function setSourceItemId(?int $sourceItemId): self
+	{
+		$this->sourceItemId = $sourceItemId;
 
 		return $this;
 	}

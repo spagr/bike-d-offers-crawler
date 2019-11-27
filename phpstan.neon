@@ -12,7 +12,9 @@ parameters:
 #		- bin/.phpunit/phpunit-7.5/vendor/autoload.php
 	symfony:
 		container_xml_path: '%rootDir%/../../../var/cache/dev/srcApp_KernelDevDebugContainer.xml'
-#	excludes_analyse:
+		
+	excludes_analyse:
+		- %currentWorkingDirectory%/src/Migrations/*
 #		- ../../../tests/temp
 #		- ../../../temp
 	ignoreErrors:
