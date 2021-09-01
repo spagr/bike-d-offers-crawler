@@ -10,9 +10,12 @@ parameters:
     Symplify\CodingStandard\Sniffs\Debug\CommentedOutCodeSniff: ~
     Symplify\CodingStandard\Sniffs\Debug\DebugFunctionCallSniff:
       - 'src/Controller/TestController.php'
-    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
-      - 'src/Crawler/AbstractGraphDataProvider.php'
+    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
+#      - 'src/Crawler/AbstractApiDataProvider.php'
+#      - 'src/Controller/TestController.php'
+#      - 'src/Crawler/Aukro/AukroCrawler.php'
     Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer: ~
+    PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: ~
         
 imports:
   - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
